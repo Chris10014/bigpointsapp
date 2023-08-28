@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl } from "../shared/baseUrl";
+import { baseUrl } from "./baseUrl";
 
 export default axios.create({
   baseURL: baseUrl,

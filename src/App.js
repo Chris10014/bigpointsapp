@@ -1,9 +1,17 @@
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import Main from "./components/Main";
+
 function App() {
   return (
-    <div className="">
-      <p>Startpunkt ... alles neu :-)</p>
+    <div className="App">
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+

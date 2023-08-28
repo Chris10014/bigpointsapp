@@ -11,14 +11,17 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router": "^6.15.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
     "reactstrap": "^9.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "convert-svg-file": "svgo one.svg two.svg -o one.min.svg two.min.svg",
+    "convert-svg-folder": "svgo -f ./path/to/folder/with/svg/files -o ./path/to/folder/with/svg/output"
   },
   "eslintConfig": {
     "extends": [
