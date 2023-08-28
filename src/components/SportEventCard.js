@@ -12,7 +12,7 @@ import { format } from "date-fns";
 const SportEventCard = ({ sportEvent, eventDate }) => {
 
   return (
-    <div className="col-12 col-md-6 col-lg-4 m-1">
+    <div className="col-12 col-md-6 col-lg-4 mt-3">
         <Card key={eventDate.id} className="h-100 text-white bg-dark">
           <CardBody>
             <Link className="text-decoration-none text-white" to={`/sportEvents/${sportEvent.id}/${eventDate.id}`} /*link to the sportEvent details */>

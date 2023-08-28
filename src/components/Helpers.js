@@ -4,7 +4,6 @@
  * @returns {file name} string file name of the sportEvent visual
  */
 export const renderEventVisual = (sportEvent) => {
-  console.log("event: ", sportEvent)
   const random = (min = 0, max = 50) => {
     let num = Math.random() * (max - min) + min;
 

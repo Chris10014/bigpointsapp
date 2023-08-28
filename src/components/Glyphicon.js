@@ -15,7 +15,7 @@ import { FaSwimmer, FaRunning, FaWalking, FaBiking, FaCircleNotch, FaQuestion } 
       case "swi":
         return < FaSwimmer 
           className={props.className ? props.className : ""} 
-            flip="horizontal" 
+            flip="horizontal"            
             size={props.size ? props.size : ""} 
             color={props.color ? props.color : ""} />;
       case "bike":
@@ -67,8 +67,8 @@ import { FaSwimmer, FaRunning, FaWalking, FaBiking, FaCircleNotch, FaQuestion } 
         return (
           <span>
             <FaSwimmer 
-              className={props.className ? props.className : ""} 
-              flip="horizontal" 
+              className={props.className ? props.className : ""}
+              flip="horizontal"
               size={props.size ? props.size : ""} 
               color={props.color ? props.color : ""} />
             {' '} 

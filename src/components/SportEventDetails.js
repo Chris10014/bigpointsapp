@@ -48,8 +48,8 @@ const SportEventDetails = () => {
             <Row>
                 <div className="col-8">
                     <h1>{selectedSportEvent.name}</h1>
-                    <h3 className="d-inline text-muted">{selectedSportEvent.host ? selectedSportEvent.host.team_name : ""},</h3>
-                    <h4 className="d-inline text-muted">
+                    <h3 className="d-inline text-dimmed">{selectedSportEvent.host ? `${selectedSportEvent.host.team_name},` : ""}</h3>
+                    <h4 className="d-inline text-dimmed">
                     {" "}{selectedSportEvent.postal_code} {selectedSportEvent.city}
                     </h4>
                     <h5>
@@ -62,11 +62,12 @@ const SportEventDetails = () => {
                     <img className="img-fluid event-logo align-self-end" src={"/assets/images/event-logos/" + selectedSportEvent.logo} alt="" align="absmiddle" />
                 </div>
             </Row>
+            <Row>
             {selectedSportEvent.races 
-                ? <div className="card-group align-content-center"><RaceFeed races={selectedSportEvent.races} sportEventId={sportEventId} /></div>
-                    : null
+                ? <RaceFeed races={selectedSportEvent.races} sportEventId={sportEventId} />
+                    : <h4>Es wurden keine Veranstaltungen gefunden.</h4>
             }
-            
+            </Row>            
         </main>
     )
 }

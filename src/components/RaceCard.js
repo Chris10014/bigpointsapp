@@ -28,7 +28,7 @@ const RaceCard = ({ race, sportEventId }) => {
               {race.competition ? (
                 <p className="inline">
                  {" "}{" "}
-                  <FaStopwatch />
+                  <FaStopwatch size="25px" />
                   {race.virtual ? " virtuell" : null}
                 </p>
               ) : null}
@@ -37,7 +37,7 @@ const RaceCard = ({ race, sportEventId }) => {
               <p>{race.courses.length > 1 ? "Strecken " : "Strecke "}</p>
               {race.courses.map((course, index) => {
                 return (
-                  <span>
+                  <span key={course.id}>
                     <Glyphicon icon={course.sport.code.toLowerCase()} />
                    {" "}{new Intl.NumberFormat("de-DE").format(course.distance * 1)} km
                     {/* Glyph for course and distance */}
@@ -47,8 +47,7 @@ const RaceCard = ({ race, sportEventId }) => {
                         <FaCircle size="10px" />
                        {" "}
                       </code>
-                    ) : null}
-                    {/* Muted dot as separator between course data */}
+                    ) : null} {/* Muted dot as separator between course data */}
                     {/* {auth.isAuthenticated ? (<p>Bearbeiten</p>) : null} */}
                   </span>
                 );

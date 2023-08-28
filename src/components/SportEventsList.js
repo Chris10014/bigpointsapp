@@ -6,6 +6,7 @@ import {
 import { FaClipboard, FaFlag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import { Loading } from "./Loading";
 import EventContext from "../context/EventContext";
 
 import SportEventFeed from './SportEventFeed';
@@ -104,10 +105,13 @@ export const SportEventsList = () => {
                 })}
             </datalist>
 
-            {eventsLoading && <p>Loading data ...</p>}
-            {!eventsLoading && eventsFetchError && <p>{eventsFetchError}</p>}
-            {!eventsLoading && !eventsFetchError && (searchResult.length ? <div className="card-group align-content-center" ><SportEventFeed filteredAndSortedSportEvents={searchResult} /></div>
-                : <p className="statusMsg">Keine Versanstaltungen gefunden, die zu den Suchkriterien passen.</p>)}
+            <Row>
+                {eventsLoading && <Loading />}
+                {!eventsLoading && eventsFetchError && <p>{eventsFetchError}</p>}
+                {!eventsLoading && !eventsFetchError && (searchResult.length ? <SportEventFeed filteredAndSortedSportEvents={searchResult} />
+                    : <p className="statusMsg">Keine Versanstaltungen gefunden, die zu den Suchkriterien passen.</p>)}
+            </Row>
+           
         </main>        
     )
 }

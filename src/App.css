@@ -29,6 +29,12 @@ h1 {
   display: inline-block
 }
 
+.card-img-over {
+  max-height: 20vw;
+  min-height: 10vw;
+  object-fit: cover;
+}
+
 .card-max-height {
   max-height: 20vh; /* 20% der Viewport-Höhe */
 }
