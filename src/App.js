@@ -1,14 +1,13 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { EventProvider } from "./context/EventContext";
 
 import Main from "./components/Main";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Main />
-      </BrowserRouter>
+    <div className="App">      
+        <EventProvider>
+          <Main />
+        </EventProvider> 
     </div>
   );
 }
