@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router";
 import Layout from "./Layout";
 import Home from "./Home";
@@ -10,13 +9,14 @@ const  Main = () => {
 
   return(
     <Routes>
-      <Route path="/*" element={<Layout />} />
-      <Route index element={<Home />} />
-      <Route path="sportEvents">
-        <Route index element={<SportEventsList />} />
-        <Route path=":sportEventId/:eventDateId" element={<SportEventDetails />} />
+      <Route path="/" element={<Layout />} >
+        <Route index element={<Home />} />
+        <Route path="sportEvents">
+          <Route index element={<SportEventsList />} />
+          <Route path=":sportEventId/:eventDateId" element={<SportEventDetails />} />
+        </Route>
+        <Route path="*" element={<Missing />} />
       </Route>
-      <Route path="*" element={<Missing />} />
     </Routes>
   )  
 };

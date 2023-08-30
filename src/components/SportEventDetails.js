@@ -50,7 +50,7 @@ const SportEventDetails = () => {
                     <h1>{selectedSportEvent.name}</h1>
                     <h3 className="d-inline text-dimmed">{selectedSportEvent.host ? `${selectedSportEvent.host.team_name},` : ""}</h3>
                     <h4 className="d-inline text-dimmed">
-                    {" "}{selectedSportEvent.postal_code} {selectedSportEvent.city}
+                        {" "}{selectedSportEvent.postal_code} {selectedSportEvent.city}
                     </h4>
                     <h5>
                         {(selectedEventDate.start && !selectedEventDate.end && format(new Date(selectedEventDate.start), "dd.MM.yyy"))} {/* nur Startdartum vorhanden */}
@@ -63,10 +63,11 @@ const SportEventDetails = () => {
                 </div>
             </Row>
             <Row>
-            {selectedSportEvent.races 
-                ? <RaceFeed races={selectedSportEvent.races} sportEventId={sportEventId} />
-                    : <h4>Es wurden keine Veranstaltungen gefunden.</h4>
-            }
+                {console.log(selectedSportEvent)}
+                {selectedSportEvent.races && selectedEventDate.start 
+                    ? <RaceFeed races={selectedSportEvent.races} sportEventId={sportEventId} />
+                        : <h4>Es wurden keine Veranstaltungen gefunden.</h4>
+                }
             </Row>            
         </main>
     )

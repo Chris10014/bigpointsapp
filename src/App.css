@@ -26,11 +26,11 @@ h1 {
 }
 
 .inline-block {
-  display: inline-block
+  display: inline-block;
 }
 
 .card-img-over {
-  max-height: 20vw;
+  max-height: 15vw;
   min-height: 10vw;
   object-fit: cover;
 }

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Card, CardBody, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
+import { Row, Card, CardBody, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
 import EventContext from "../context/EventContext";
 import { Glyphicon } from "./Glyphicon";
 import { renderEventVisual } from "./Helpers";
@@ -21,18 +21,18 @@ const RaceCard = ({ race, sportEventId }) => {
                   <h2>{race.name}</h2>
                 </div>
               </CardTitle>
-            </CardImgOverlay>
-            <CardText>
-              <h4 className="inline m-1">{race.sport.sport_de}</h4>
-             {" "}
+            </CardImgOverlay>            
+            <h4 className="d-flex justify-content-between m-1"><span>{race.sport.sport_de}</span>
+              {" "}
               {race.competition ? (
-                <p className="inline">
+                <span className="text-right">
                  {" "}{" "}
-                  <FaStopwatch size="25px" />
+                  <FaStopwatch size="20px" />
                   {race.virtual ? " virtuell" : null}
-                </p>
+                </span>
               ) : null}
               {/*Is the event a competition? */}
+              </h4>               
               <hr />
               <p>{race.courses.length > 1 ? "Strecken " : "Strecke "}</p>
               {race.courses.map((course, index) => {
@@ -52,7 +52,7 @@ const RaceCard = ({ race, sportEventId }) => {
                   </span>
                 );
               })}
-            </CardText>
+           
           </CardBody>
         </Card>
       </div>
