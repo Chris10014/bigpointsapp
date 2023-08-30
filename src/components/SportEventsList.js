@@ -27,7 +27,9 @@ export const SportEventsList = () => {
             </Breadcrumb>
             <hr />
             <h2>Veranstaltungen</h2>    
-            {(searchResult.map((event) => event.name))}    
+            {(searchResult.map((event) => {
+                return event.name;
+            }))}    
             <Row className="mb-3">
                 <Col md={5}>
                     <Label htmlFor="eventSearch">Veranstaltung:</Label>
