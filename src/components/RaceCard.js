@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Row, Card, CardBody, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
+import { Card, CardBody, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 import EventContext from "../context/EventContext";
 import { Glyphicon } from "./Glyphicon";
 import { renderEventVisual } from "./Helpers";
