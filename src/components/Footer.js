@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+import useContentSizeByTagName from "../hooks/useContentSizeByTagName.js";
+import useWindowSize from "../hooks/useWindowSize";
 
-class Footer extends Component {
-
-    render() {
+const Footer = () => {
+    const { height: contentHeight } = useContentSizeByTagName("main")
+    const { height: windowHeight } = useWindowSize();
+    
+    console.log("cont height: ", contentHeight, " windowHeight: ", windowHeight )
         return(
-            <footer className="container mt-3">
+            
+            <footer className={(contentHeight < windowHeight) || (contentHeight === undefined) ? "container fixed-bottom" : "container"}>
                 <hr />
                 <h1>Das ist der Footer</h1>
             </footer>
             
         );
-
     }
-    
-}
 
 export default Footer;

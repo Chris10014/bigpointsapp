@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import EventContext from "../context/EventContext";
 import RaceFeed from "./RaceFeed";
 
-const SportEventDetails = () => {
+const SportEventDetails = () => {    
     const { searchResult } = useContext(EventContext);
 
     const [selectedSportEvent, setSelectedSportEvent] = useState({});
@@ -44,7 +44,6 @@ const SportEventDetails = () => {
                 <BreadcrumbItem active>{selectedSportEvent.name}</BreadcrumbItem>
             </Breadcrumb>
             <hr />
-
             <Row>
                 <div className="col-8">
                     <h1>{selectedSportEvent.name}</h1>

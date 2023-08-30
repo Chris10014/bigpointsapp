@@ -3,8 +3,12 @@ import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Button } fr
 import { NavLink } from "react-router-dom";
 import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../images/bigpoints_logo_pic_only.min.svg";
+import useContentSizeByTagName from "../hooks/useContentSizeByTagName.js";
+import useWindowSize from "../hooks/useWindowSize";
 
 const Header = (props) => {
+  const { height: contentHeight } = useContentSizeByTagName("main");
+  const { height: windowHeight } = useWindowSize();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -62,6 +66,7 @@ const Header = (props) => {
           </Nav>
         </div>
       </Navbar>
+      <h2>content: {contentHeight}   window: {windowHeight}</h2>
 
       {/* <Modal isOpen={isModalOpen} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Login</ModalHeader>
