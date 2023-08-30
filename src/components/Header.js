@@ -32,7 +32,7 @@ const Header = (props) => {
   return (
     <>
       <Navbar className="navbar navbar-dark bg-dark mb-3" sticky="top" expand="md">
-        <div className="container">
+        <div className="container d-flex justify-content-between">
           <NavbarToggler onClick={toggleNav} />
           <NavbarBrand className="mr-auto" href="/">
             <img src={Logo} height="30" width="41" alt="BigPoints" />

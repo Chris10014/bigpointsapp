@@ -4,10 +4,10 @@ class Footer extends Component {
 
     render() {
         return(
-            <div className="container mt-3">
+            <footer className="container mt-3">
                 <hr />
                 <h1>Das ist der Footer</h1>
-            </div>
+            </footer>
             
         );
 

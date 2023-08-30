@@ -27,8 +27,7 @@ const SportEventCard = ({ sportEvent, eventDate }) => {
               <CardImgOverlay>
                 <CardTitle>
                   <div className="bg-dark-transparent">
-                    <h6 className="">
-                      <div className="row">
+                    <h6 className="d-flex justify-content-between">                      
                         <span className="col-10">
                           {(eventDate.start && !eventDate.end) || (eventDate.start && eventDate.end && eventDate.start === eventDate.end)
                             ? format(new Date(eventDate.start), "dd.MM.yyyy")
@@ -43,9 +42,7 @@ const SportEventCard = ({ sportEvent, eventDate }) => {
                         </span>
                         <span className="col-2">
                           <img className="img-fluid" src={"assets/images/country-flags/svg/" + sportEvent.country.country_code.toLowerCase() + ".svg"} alt={sportEvent.country.country_name} align="absmiddle" />
-                        </span>
-                      </div>
-                      {/* / .row */}
+                        </span>                      
                     </h6>
                     <h4 className="">{sportEvent.name}</h4>
                   </div>
