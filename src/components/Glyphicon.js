@@ -65,7 +65,7 @@ import { FaSwimmer, FaRunning, FaWalking, FaBiking, FaCircleNotch, FaQuestion } 
                   color={props.color ? props.color : ""} />;
       case "tri":
         return (
-          <span>
+          <span className="p-1">
             <FaSwimmer 
               className={props.className ? props.className : ""}
               flip="horizontal"
@@ -85,7 +85,7 @@ import { FaSwimmer, FaRunning, FaWalking, FaBiking, FaCircleNotch, FaQuestion } 
         );
         case "dua":
         return (
-          <span>
+          <span className="p-1">
             <FaRunning 
               className={props.className ? props.className : ""} 
               size={props.size ? props.size : ""} 
