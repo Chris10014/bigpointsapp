@@ -35,23 +35,25 @@ const RaceCard = ({ race, sportEventId }) => {
               </h4>               
               <hr />
               <p>{race.courses.length > 1 ? "Strecken " : "Strecke "}</p>
+              <div d-flex flex-direction-row justify-content-start>
               {race.courses.map((course, index) => {
-                return (
-                  <span key={course.id}>
-                    <Glyphicon icon={course.sport.code.toLowerCase()} />
-                   {" "}{new Intl.NumberFormat("de-DE").format(course.distance * 1)} km
-                    {/* Glyph for course and distance */}
-                    {index < race.courses.length - 1 ? (
-                      <code className="text-dimmed">
-                       {" "}
-                        <FaCircle size="10px" />
-                       {" "}
-                      </code>
-                    ) : null} {/* Muted dot as separator between course data */}
-                    {/* {auth.isAuthenticated ? (<p>Bearbeiten</p>) : null} */}
-                  </span>
+                return (                  
+                    <span key={course.id}>
+                      <Glyphicon icon={course.sport.code.toLowerCase()} />
+                      {" "}{new Intl.NumberFormat("de-DE").format(course.distance * 1)} km
+                      {/* Glyph for course and distance */}
+                      {index < race.courses.length - 1 ? (
+                        <code className="text-dimmed">
+                        {" "}
+                          <FaCircle size="10px" />
+                        {" "}
+                        </code>
+                      ) : null} {/* Muted dot as separator between course data */}
+                      {/* {auth.isAuthenticated ? (<p>Bearbeiten</p>) : null} */}
+                    </span>  
                 );
               })}
+              </div>
            
           </CardBody>
         </Card>
