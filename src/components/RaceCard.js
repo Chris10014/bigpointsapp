@@ -40,14 +40,13 @@ const RaceCard = ({ race, sportEventId }) => {
                   return (                  
                     <span key={course.id}>
                       <Glyphicon icon={course.sport.code.toLowerCase()} />
-                      {" "}{new Intl.NumberFormat("de-DE").format(course.distance * 1)} km
+                      {" "}
+                      {new Intl.NumberFormat("de-DE").format(course.distance * 1)} km
                       {/* Glyph for course and distance */}
                       {index < race.courses.length - 1 ? (
-                        <code className="text-dimmed">
-                        {" "}
-                          <FaCircle size="10px" />
-                        {" "}
-                        </code>
+                        <span className="text-dimmed p-1">                        
+                          <FaCircle size="10px" />                        
+                        </span>
                       ) : null} {/* Muted dot as separator between course data */}
                       {/* {auth.isAuthenticated ? (<p>Bearbeiten</p>) : null} */}
                     </span>  
