@@ -60,8 +60,8 @@ const SportEventCard = ({ sportEvent, eventDate }) => {
                   {sportEvent.races.map((race) => {
                     return (
                       <li key={race.id}>
-                        {race.name}{' '}
-                        <span className="text-dimmed">
+                        {race.name}
+                        <span className="text-dimmed p-3">
                           <Glyphicon icon={race.sport.code} />
                         </span>
                       </li>
