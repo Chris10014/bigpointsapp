@@ -110,8 +110,7 @@ export const SportEventsList = () => {
                 {!eventsLoading && eventsFetchError && <p>{eventsFetchError}</p>}
                 {!eventsLoading && !eventsFetchError && (searchResult.length ? <SportEventFeed filteredAndSortedSportEvents={searchResult} />
                     : <p className="statusMsg">Keine Versanstaltungen gefunden, die zu den Suchkriterien passen.</p>)}
-            </Row>
-           
+            </Row>           
         </main>        
     )
 }

@@ -1,6 +1,17 @@
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'PT Serif', serif;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+ flex-shrink: 0;
 }
 
 h1,
