@@ -3,7 +3,7 @@ import {
     Row, Col, Label, Input, InputGroup,
     Breadcrumb, BreadcrumbItem
 } from "reactstrap";
-import { FaClipboard, FaFlag } from "react-icons/fa";
+import { FaClipboard, FaFlag, FaCalendarPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import { Loading } from "./Loading";
@@ -26,7 +26,21 @@ export const SportEventsList = () => {
                 <BreadcrumbItem active>Veranstaltungen</BreadcrumbItem>
             </Breadcrumb>
             <hr />
-            <h2>Veranstaltungen</h2>    
+            <div className="d-flex justify-content-between">
+                <h2>Veranstaltungen</h2>
+                <span>
+                    <Link to="create">
+                        <FaCalendarPlus className="text-muted m-1" size="30px" color="black" />
+                        <button 
+                            type="button" 
+                            className="btn btn-success" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Neue Veranstaltung eintragen"> Neue Veranstaltung
+                        </button>
+                    </Link>
+                </span>
+            </div>             
             {(searchResult.map((event) => event.name))}    
             <Row className="mb-3">
                 <Col md={5}>

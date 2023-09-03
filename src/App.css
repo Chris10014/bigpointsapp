@@ -122,3 +122,8 @@ Source: https://qawall.in/overlay-button-on-bottom-right-corner/
   -webkit-transform: scale(0.92);
   transform: scale(0.92);
 }
+
+.new-event-form {  
+  display: flex;
+  flex-direction: column;  
+}

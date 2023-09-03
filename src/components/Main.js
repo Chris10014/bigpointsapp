@@ -4,6 +4,7 @@ import Home from "./Home";
 import Missing from "./Missing";
 import SportEventsList from "./SportEventsList";
 import SportEventDetails from "./SportEventDetails";
+import NewSportEvent from "./NewSportEvent";
 
 const  Main = () => {
 
@@ -14,6 +15,7 @@ const  Main = () => {
         <Route path="sportEvents">
           <Route index element={<SportEventsList />} />
           <Route path=":sportEventId/:eventDateId" element={<SportEventDetails />} />
+          <Route path="create" element={<NewSportEvent />} />
         </Route>
         <Route path="*" element={<Missing />} />
       </Route>

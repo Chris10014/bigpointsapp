@@ -22,7 +22,7 @@ const RaceCard = ({ race, sportEventId }) => {
                 </div>
               </CardTitle>
             </CardImgOverlay>            
-            <h4 className="d-flex justify-content-between m-1"><span>{race.sport.sport_de}</span>
+            <h4 className="d-flex=true justify-content-between=true m-1"><span>{race.sport.sport_de}</span>
               {" "}
               {race.competition ? (
                 <span className="text-right">
@@ -35,7 +35,7 @@ const RaceCard = ({ race, sportEventId }) => {
               </h4>               
               <hr />
               <p>{race.courses.length > 1 ? "Strecken " : "Strecke "}</p>
-              <div d-flex justify-content-start>
+              <div className="d-flex=true justify-content-start=true">
                 {race.courses.map((course, index) => {
                   return (                  
                     <span key={course.id}>
