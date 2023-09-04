@@ -55,7 +55,7 @@ const Header = (props) => {
             <NavItem>
               <div>
                 <Button outline onClick={toggleModal}>
-                  <span><FaSignInAlt /></span> Login
+                  <span><FaSignInAlt className="m-1" /></span>Login
                 </Button>
               </div>
             </NavItem>

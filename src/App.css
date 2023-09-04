@@ -13,6 +13,7 @@ h6 {
 }
 
 button,
+.btn,
 .btn-form {
   font-family: "Lato", sans-serif;
 }
@@ -121,9 +122,4 @@ Source: https://qawall.in/overlay-button-on-bottom-right-corner/
   backface-visibility: hidden;
   -webkit-transform: scale(0.92);
   transform: scale(0.92);
-}
-
-.new-event-form {  
-  display: flex;
-  flex-direction: column;  
 }

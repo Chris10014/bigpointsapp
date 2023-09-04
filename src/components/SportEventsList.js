@@ -30,13 +30,13 @@ export const SportEventsList = () => {
                 <h2>Veranstaltungen</h2>
                 <span>
                     <Link to="create">
-                        <FaCalendarPlus className="text-muted m-1" size="30px" color="black" />
+                        
                         <button 
                             type="button" 
                             className="btn btn-success" 
                             data-toggle="tooltip" 
                             data-placement="top" 
-                            title="Neue Veranstaltung eintragen"> Neue Veranstaltung
+                            title="Neue Veranstaltung eintragen"><FaCalendarPlus className="text-muted p-1" size="30px" color="black" />Neue Veranstaltung
                         </button>
                     </Link>
                 </span>
