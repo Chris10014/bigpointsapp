@@ -4,6 +4,7 @@ import Home from "./Home";
 import Missing from "./Missing";
 import SportEventsList from "./SportEventsList";
 import SportEventDetails from "./SportEventDetails";
+import AddRaceForm from "./AddRaceForm";
 
 const  Main = () => {
 
@@ -15,6 +16,7 @@ const  Main = () => {
           <Route index element={<SportEventsList />} />
           <Route path=":sportEventId/:eventDateId" element={<SportEventDetails />} />
         </Route>
+        <Route path="addRaces" element={<AddRaceForm />} />
         <Route path="*" element={<Missing />} />
       </Route>
     </Routes>
