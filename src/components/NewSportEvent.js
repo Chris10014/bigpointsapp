@@ -8,7 +8,7 @@ const NewSportEvent = () => {
 
     const { sportEvents, setSportEvents, 
         countries,
-        teams, setTeams } = useContext(EventContext);
+        teams } = useContext(EventContext);
     const [eventName, setEventName] = useState("");
     const [eventHost, setEventHost] = useState("");
     const [startDate, setStartDate] = useState("");
@@ -17,6 +17,8 @@ const NewSportEvent = () => {
     const [homepage, setHompage] = useState("");
 
     const navigate = useNavigate();
+
+    const uniqueCities = []; 
 
     //dates and races to be added
 
@@ -54,11 +56,9 @@ const NewSportEvent = () => {
                 console.log(err.response.headers);
             } else {
                 console.log(`Error: ${err.message}`)
-            }  
-
+            } 
         }
     }
-
 
   return (
     <main className="container">
@@ -72,7 +72,7 @@ const NewSportEvent = () => {
             <BreadcrumbItem active>Veranstaltung eintragen</BreadcrumbItem>
         </Breadcrumb>
         <hr />
-        <h2>Neue Veranstaltungen eintragen</h2>
+        <h2>Neue Veranstaltung eintragen</h2>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label htmlFor="eventName">Name</Label>
@@ -149,10 +149,25 @@ const NewSportEvent = () => {
                             aria-describedby="cityHelp" 
                             placeholder="Veranstaltungsort ..."
                             value={eventLocation.city}
+                            autoComplete="off"
+                            list="existingCities"
                             onChange={(e) => setEventLocation({...eventLocation, city: e.target.value})}
                             required
                         />
                         <small id="cityHelp" className="form-text text-muted">Veranstaltungsort eingeben.</small>
+
+                        {/* datalist for city input field */}
+                        <datalist id="existingCities">                                
+                            {sportEvents.map((sportEvent) => {
+                                 var findCity = uniqueCities.find((city) => city === sportEvent.city);
+                                if (!findCity) {
+                                    uniqueCities.push(sportEvent.city);
+                                return <option key={sportEvent.id} value={sportEvent.city}></option>;
+                                } else {
+                                    return null;
+                                }
+                            })}
+                        </datalist>
                     </FormGroup>
                 </Col>
                 <Col md={4}>
@@ -226,11 +241,8 @@ const NewSportEvent = () => {
                     />
                     <small id="eventDateHelp" className="form-text text-muted"></small>
                     </FormGroup>
-                </Col>
-            
-
-            </Row>
-            
+                </Col>        
+            </Row>           
 
             <button type="submit" className="btn btn-primary">Submit</button>
         </Form>
