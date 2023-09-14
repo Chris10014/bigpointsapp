@@ -10,6 +10,7 @@ export const EventProvider = ({ children }) => {
 
     const [sportEvents, setSportEvents] = useState([]);
     const [countries, setCountries] = useState([]);
+    const [teams, setTeams] = useState([]);
     const [eventSearch, setEventSearch] = useState("");
     const [dateSearch, setDateSearch] = useState(format(new Date(), "yyyy-MM-dd"));
     const [countrySearch, setCountrySearch] = useState("");
@@ -19,6 +20,7 @@ export const EventProvider = ({ children }) => {
 
     const { data: eventsData, fetchError: eventsFetchError, isLoading: eventsLoading } = useAxiosFetch(`${baseUrl}sportEvents`);
     const { data: countriesData, fetchError: countriesFetchError, isLoading: countriesLoading } = useAxiosFetch(`${baseUrl}countries`);
+    const { data: teamsData, fetchError: teamsFetchError, isLoading: teamsLoading } = useAxiosFetch(`${baseUrl}teams`);
 
     useEffect(() => {
         setSportEvents(eventsData);
@@ -27,6 +29,10 @@ export const EventProvider = ({ children }) => {
     useEffect(() => {
         setCountries(countriesData);
     }, [countriesData])
+
+    useEffect(() => {
+        setTeams(teamsData);
+    }, [teamsData])
 
     useEffect(() => {
         /**
@@ -73,6 +79,7 @@ export const EventProvider = ({ children }) => {
             eventsFetchError, eventsLoading,
             sportEvents, setSportEvents,
             countries, setCountries,
+            teams, setTeams,
             eventSearch, setEventSearch, dateSearch, setDateSearch, countrySearch, setCountrySearch, searchResult,
             navigate
          }}>

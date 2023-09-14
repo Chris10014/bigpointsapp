@@ -28,10 +28,9 @@ export const SportEventsList = () => {
             <hr />
             <div className="d-flex justify-content-between">
                 <h2>Veranstaltungen</h2>
-                <span>
-                    <Link to="create">
-                        
-                        <button 
+                <span className="">
+                    <Link to="create">                        
+                        <button                             
                             type="button" 
                             className="btn btn-success" 
                             data-toggle="tooltip" 

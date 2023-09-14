@@ -108,9 +108,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Place elememt bottom right foreground
 Source: https://qawall.in/overlay-button-on-bottom-right-corner/
 */
-.br-icon {
+.push-bottom-right-fixed {
   position: fixed;
-  bottom: 10px;
+  bottom: 80px;
   right: 10px;
   z-index: 100;
   /* height: 75px;
