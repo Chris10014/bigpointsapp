@@ -14,7 +14,8 @@ h6 {
 
 button,
 .btn,
-.btn-form {
+.btn-form,
+select {
   font-family: "Lato", sans-serif;
 }
 

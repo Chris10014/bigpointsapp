@@ -13,7 +13,7 @@ const NewSportEvent = () => {
     const [eventHost, setEventHost] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
-    const [eventLocation, setEventLocation] = useState({ postalCode: "", city: "", country: "" });
+    const [eventLocation, setEventLocation] = useState({ postalCode: "", city: "", country: "Deutschland" });
     const [homepage, setHompage] = useState("");
 
     const navigate = useNavigate();
@@ -30,12 +30,15 @@ const NewSportEvent = () => {
             host_id: teams.find((team) => team.team_name === eventHost).id,
             postal_code: eventLocation.postalCode,
             city: eventLocation.city,
-            country_id: countries.find((country) => country.country_name_de.toLowerCase() === eventLocation.country.toLowerCase()).id,
+            country_id: countries.find((country) => (
+                country.country_name_de.toLowerCase() === eventLocation.country.toLowerCase() 
+                || country.country_name_en.toLowerCase() === eventLocation.country.toLowerCase())
+            ).id,
             homepage: homepage
         }
         const date = { start: startDate, end: endDate }
 
-        console.log("am: ", date)
+        console.log("am: ", date, " country_id: ", newEvent.country_id)
         try {
             const response = await api.post("/sportEvents", newEvent);
             const allEvents = [...sportEvents, response.data];
@@ -174,25 +177,21 @@ const NewSportEvent = () => {
                     <FormGroup>
                     <Label htmlFor="country">Land</Label>                   
                         <Input 
-                            type="text" 
+                            type="select" 
                             className="form-control" 
                             id="country" 
                             aria-describedby="countryHelp" 
                             placeholder="Veranstaltungsland ..."
-                            value={eventLocation.country}
-                            list="countriesDe"                    
+                            value={eventLocation.country}                                          
                             autoComplete="off"
                             onChange={(e) => setEventLocation({...eventLocation, country: e.target.value})}
                             required
-                        />
-                        <small id="countryHelp" className="form-text text-muted">Veranstaltungsland in deutsch eingeben.</small>
-                                    
-                        {/* datalist for country search input field */}
-                        <datalist id="countriesDe">
+                        >
                             {countries.map((country) => {
-                                return country.country_name_de ? <option key={country.id} value={country.country_name_de}></option> : <option key={country.id} value={country.country_name_en}></option>;
+                                return country.country_name_de ? <option key={country.id} value={country.country_name_de}>{country.country_name_de}</option> : <option key={country.id} value={country.country_name_en}>{country.country_name_en}</option>;
                             })}
-                        </datalist>
+                        </Input>
+                        <small id="countryHelp" className="form-text text-muted">Veranstaltungsland in deutsch eingeben.</small>                          
                     </FormGroup>
                 </Col>
             </Row>
