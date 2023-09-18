@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
+import EventContext from "../context/EventContext";
 
 const RaceInputForm = ({ key }) => {
     /*
@@ -10,12 +11,16 @@ const RaceInputForm = ({ key }) => {
   virtual boolean
   **/
     const [raceName, setRaceName]  = useState("");
+    const [competition, setCompetition] = useState(false);
+    const [virtual, setVirtual] = useState(false);
+    const [sport, setSport] = useState("");
 
+    const { sports } = useContext(EventContext);
+
+    console.log("comp: ", competition, " vr: ", virtual)
     return (
-        <>
-        <Form key={key}>
-            <Row>
-                <Col md={6}>
+        
+        <Form key={key}>            
                 <FormGroup>
                     <Label for="raceName">Name</Label>
                     <Input
@@ -27,94 +32,56 @@ const RaceInputForm = ({ key }) => {
                         onChange={(e) => setRaceName(e.target.value)}
                     />
                 </FormGroup>
-                </Col>
+                <Row>
                 <Col md={6}>
                 <FormGroup>
-                    <Label for="examplePassword">
-                    Password
+                    <Label for="sport">
+                    Sportart:
                     </Label>
                     <Input
-                    id="examplePassword"
-                    name="password"
-                    placeholder="password placeholder"
-                    type="password"
-                    />
+                        id="sport"
+                        name="sport"
+                        placeholder="Sportart ..."
+                        type="select"
+                        onChange={(e) => setSport(e.target.value)}
+                    >
+                        { sports.map((sport) => <option key={sport.id}>{sport.sport_de}</option>)}
+                    </Input>
                 </FormGroup>
-                </Col>
+                </Col>                
             </Row>
-            <FormGroup>
-                <Label for="exampleAddress">
-                Address
-                </Label>
-                <Input
-                id="exampleAddress"
-                name="address"
-                placeholder="1234 Main St"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label for="exampleAddress2">
-                Address 2
-                </Label>
-                <Input
-                id="exampleAddress2"
-                name="address2"
-                placeholder="Apartment, studio, or floor"
-                />
-            </FormGroup>
             <Row>
-                <Col md={6}>
-                <FormGroup>
-                    <Label for="exampleCity">
-                    City
-                    </Label>
-                    <Input
-                    id="exampleCity"
-                    name="city"
-                    />
-                </FormGroup>
+                <Col md={3}>
+                    <FormGroup>
+                        <Label for="competition">
+                            <Input
+                                type="checkbox"
+                                id="competition"
+                                name="competition"
+                                checked={competition}                           
+                                onChange={(e) => setCompetition(!competition)}                    
+                            />{" "}Ohne Wertung (z. B. Volkslauf)
+                        </Label>
+                    </FormGroup>
                 </Col>
-                <Col md={4}>
-                <FormGroup>
-                    <Label for="exampleState">
-                    State
-                    </Label>
-                    <Input
-                    id="exampleState"
-                    name="state"
-                    />
-                </FormGroup>
-                </Col>
-                <Col md={2}>
-                <FormGroup>
-                    <Label for="exampleZip">
-                    Zip
-                    </Label>
-                    <Input
-                    id="exampleZip"
-                    name="zip"
-                    />
-                </FormGroup>
+                <Col md={3}>
+                    <FormGroup>
+                        <Label for="virtual">
+                            <Input
+                            type="checkbox"
+                            id="virtual"
+                            name="virtual"
+                            checked={virtual}                           
+                            onChange={(e) => setVirtual(!virtual)}                    
+                            />{' '}virtuell
+                        </Label>
+                    </FormGroup>
                 </Col>
             </Row>
-            <FormGroup check>
-                <Input
-                id="exampleCheck"
-                name="check"
-                type="checkbox"
-                />
-                <Label
-                check
-                for="exampleCheck"
-                >
-                Check me out
-                </Label>
-            </FormGroup>
             <Button>
-                Sign in
+                Submit
             </Button>
-            </Form>
-        </>
+        </Form>
     )    
 }
 
