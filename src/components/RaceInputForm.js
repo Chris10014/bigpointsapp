@@ -2,6 +2,13 @@ import { useState } from "react";
 import { Button, Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
 
 const RaceInputForm = ({ key }) => {
+    /*
+  sportEvent_id number
+  name text
+  competition boolean
+  sport_id number
+  virtual boolean
+  **/
     const [raceName, setRaceName]  = useState("");
 
     return (
